@@ -19,8 +19,8 @@ public class StudentTest {
     public void testAddStudent2() {
         // This should fail
         StudentRepository studentRepository = new StudentRepository(new StudentValidator());
-        Student student = new Student("1", "Andrei", 938);
+        Student student = new Student("1", "Andrei", 105);
         studentRepository.save(student);
-        assertEquals(studentRepository.findOne("11"), student);
+        assertEquals(studentRepository.findOne("1"), student);
     }
 }
