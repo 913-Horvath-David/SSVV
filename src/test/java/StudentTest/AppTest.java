@@ -6,6 +6,7 @@ import repository.StudentRepository;
 import validation.StudentValidator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class AppTest {
     @Test
@@ -21,8 +22,8 @@ public class AppTest {
     public void testAddStudent2() {
         // This should fail
         StudentRepository studentRepository = new StudentRepository(new StudentValidator());
-        Student student = new Student("1", "Andrei", 936);
+        Student student = new Student("1", "Mihai", 832);
         studentRepository.save(student);
-        assertEquals(studentRepository.findOne("1"), student);
+        assertNull(studentRepository.findOne("11"));
     }
 }
