@@ -1,3 +1,5 @@
+package StudentTest;
+
 import domain.Student;
 import org.junit.jupiter.api.Test;
 import repository.StudentRepository;
@@ -5,7 +7,7 @@ import validation.StudentValidator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class StudentTest {
+public class AppTest {
     @Test
     public void testAddStudent1() {
         // This should pass
