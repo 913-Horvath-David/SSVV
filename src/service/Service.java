@@ -20,18 +20,33 @@ public class Service {
 
     public Iterable<Student> findAllStudents() { return studentXmlRepo.findAll(); }
 
+    public int countStudents() {
+        int count = 0;
+        for (Student student : findAllStudents()) {
+            count++;
+        }
+        return count;
+    }
+
     public Iterable<Tema> findAllTeme() { return temaXmlRepo.findAll(); }
 
     public Iterable<Nota> findAllNote() { return notaXmlRepo.findAll(); }
 
     public int saveStudent(String id, String nume, int grupa) {
-        Student student = new Student(id, nume, grupa);
-        Student result = studentXmlRepo.save(student);
-
-        if (result == null) {
-            return 1;
+        if (id == null || id.trim().isEmpty()) {
+            return 0;
         }
-        return 0;
+
+        // Check for duplicate id
+        Student foundStudent = studentXmlRepo.findOne(id);
+        if (foundStudent != null) {
+            return 0;
+        }
+
+        Student student = new Student(id, nume, grupa);
+        Student studentAdded = studentXmlRepo.save(student);
+
+        return studentAdded != null ? 1 : 0;
     }
 
     public int saveTema(String id, String descriere, int deadline, int startline) {
