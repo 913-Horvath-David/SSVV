@@ -12,7 +12,7 @@ public class StudentValidator implements Validator<Student> {
 
         try {
             int integerID = Integer.parseInt(studentID.trim());
-            if (integerID <= 0) {
+            if (integerID < 0) {
                 throw new ValidationException("ID invalid! ID trebuie sa fie numar intreg pozitiv!\n");
             }
         } catch (NumberFormatException nfe) {

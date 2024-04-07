@@ -46,17 +46,24 @@ public class Service {
         Student student = new Student(id, nume, grupa);
         Student studentAdded = studentXmlRepo.save(student);
 
-        return studentAdded != null ? 1 : 0;
+        return studentAdded == null ? 0 : 1;
     }
 
     public int saveTema(String id, String descriere, int deadline, int startline) {
-        Tema tema = new Tema(id, descriere, deadline, startline);
-        Tema result = temaXmlRepo.save(tema);
-
-        if (result == null) {
-            return 1;
+        if (id == null || id.trim().isEmpty()) {
+            return 0;
         }
-        return 0;
+
+        // Check for duplicate id
+        Tema foundTema = temaXmlRepo.findOne(id);
+        if (foundTema != null) {
+            return 0;
+        }
+
+        Tema tema = new Tema(id, descriere, deadline, startline);
+        Tema temaAdded = temaXmlRepo.save(tema);
+
+        return temaAdded == null ? 0 : 1;
     }
 
     public int saveNota(String idStudent, String idTema, double valNota, int predata, String feedback) {
