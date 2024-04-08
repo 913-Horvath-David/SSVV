@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="HomeworkTest.AppTest" time="0.076" tests="12" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="GradeTest.AppTest" time="0.262" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,48 +60,11 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="addTema_WithTooLargeDeadline_ShouldFail" classname="HomeworkTest.AppTest" time="0.009">
-    <system-out><![CDATA[Entitatea nu este valida: Deadline invalid! 
+  <testcase name="addTema_WithValidData_ShouldAddSuccessfully" classname="GradeTest.AppTest" time="0.037"/>
+  <testcase name="addGrade_integration" classname="GradeTest.AppTest" time="0.1">
+    <system-out><![CDATA[Entitatea nu este valida: Nota invalida! 
 
 ]]></system-out>
   </testcase>
-  <testcase name="addTema_WithTooSmallDeadline_ShouldFail" classname="HomeworkTest.AppTest" time="0.005">
-    <system-out><![CDATA[Entitatea nu este valida: Deadline invalid! 
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithTooLargeStartline_ShouldFail" classname="HomeworkTest.AppTest" time="0.007">
-    <system-out><![CDATA[Entitatea nu este valida: Data de primire invalida! 
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithInvalidDates_ShouldFail" classname="HomeworkTest.AppTest" time="0.006">
-    <system-out><![CDATA[Entitatea nu este valida: Data de primire nu poate fi dupa deadline! 
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithNegativeId_ShouldFail" classname="HomeworkTest.AppTest" time="0.003">
-    <system-out><![CDATA[Entitatea nu este valida: ID invalid! ID trebuie sa fie numar intreg pozitiv!
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithEmptyId_ShouldFail" classname="HomeworkTest.AppTest" time="0.002"/>
-  <testcase name="addTema_WithNullId_ShouldFail" classname="HomeworkTest.AppTest" time="0.001"/>
-  <testcase name="addTema_WithValidData_ShouldAddSuccessfully" classname="HomeworkTest.AppTest" time="0.001"/>
-  <testcase name="addTema_WithTooSmallStartline_ShouldFail" classname="HomeworkTest.AppTest" time="0.005">
-    <system-out><![CDATA[Entitatea nu este valida: Data de primire invalida! 
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithNullDescription_ShouldFail" classname="HomeworkTest.AppTest" time="0.004">
-    <system-out><![CDATA[Entitatea nu este valida: Descriere invalida! 
-
-]]></system-out>
-  </testcase>
-  <testcase name="addTema_WithDuplicateId_ShouldFail" classname="HomeworkTest.AppTest" time="0.001"/>
-  <testcase name="addTema_WithEmptyDescription_ShouldFail" classname="HomeworkTest.AppTest" time="0.004">
-    <system-out><![CDATA[Entitatea nu este valida: Descriere invalida! 
-
-]]></system-out>
-  </testcase>
+  <testcase name="addStudent_WithValidData_ShouldAddSuccessfully" classname="GradeTest.AppTest" time="0.003"/>
 </testsuite>
