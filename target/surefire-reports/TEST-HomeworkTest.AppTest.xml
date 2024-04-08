@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="HomeworkTest.AppTest" time="0.143" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="HomeworkTest.AppTest" time="0.338" tests="12" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\David\.jdks\openjdk-21.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\David\AppData\Local\Temp\surefire17362584920830705599\surefirebooter-20240325191607642_3.jar C:\Users\David\AppData\Local\Temp\surefire17362584920830705599 2024-03-25T19-16-07_515-jvmRun1 surefire-20240325191607642_1tmp surefire_0-20240325191607642_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\David\AppData\Local\Temp\surefire13413951100043892329\surefirebooter-20240408180300730_3.jar C:\Users\David\AppData\Local\Temp\surefire13413951100043892329 2024-04-08T18-03-00_337-jvmRun1 surefire-20240408180300730_1tmp surefire_0-20240408180300730_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="D:\Files\Git\SSVV\target\test-classes;D:\Files\Git\SSVV\target\classes;C:\Users\David\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.2\junit-jupiter-5.10.2.jar;C:\Users\David\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.2\junit-jupiter-api-5.10.2.jar;C:\Users\David\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\David\.m2\repository\org\junit\platform\junit-platform-commons\1.10.2\junit-platform-commons-1.10.2.jar;C:\Users\David\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\David\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.2\junit-jupiter-params-5.10.2.jar;C:\Users\David\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.2\junit-jupiter-engine-5.10.2.jar;C:\Users\David\.m2\repository\org\junit\platform\junit-platform-engine\1.10.2\junit-platform-engine-1.10.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\David\AppData\Local\Temp\surefire17362584920830705599\surefirebooter-20240325191607642_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\David\AppData\Local\Temp\surefire13413951100043892329\surefirebooter-20240408180300730_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.2+13-58"/>
@@ -60,10 +60,48 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="addTema_WithNullId_ShouldFail" classname="HomeworkTest.AppTest" time="0.087">
-    <system-out><![CDATA[Entitatea nu este valida: ID invalid! 
+  <testcase name="addTema_WithTooLargeDeadline_ShouldFail" classname="HomeworkTest.AppTest" time="0.192">
+    <system-out><![CDATA[Entitatea nu este valida: Deadline invalid! 
 
 ]]></system-out>
   </testcase>
+  <testcase name="addTema_WithTooSmallDeadline_ShouldFail" classname="HomeworkTest.AppTest" time="0.006">
+    <system-out><![CDATA[Entitatea nu este valida: Deadline invalid! 
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithTooLargeStartline_ShouldFail" classname="HomeworkTest.AppTest" time="0.004">
+    <system-out><![CDATA[Entitatea nu este valida: Data de primire invalida! 
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithInvalidDates_ShouldFail" classname="HomeworkTest.AppTest" time="0.004">
+    <system-out><![CDATA[Entitatea nu este valida: Data de primire nu poate fi dupa deadline! 
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithNegativeId_ShouldFail" classname="HomeworkTest.AppTest" time="0.005">
+    <system-out><![CDATA[Entitatea nu este valida: ID invalid! ID trebuie sa fie numar intreg pozitiv!
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithEmptyId_ShouldFail" classname="HomeworkTest.AppTest" time="0.001"/>
+  <testcase name="addTema_WithNullId_ShouldFail" classname="HomeworkTest.AppTest" time="0.002"/>
   <testcase name="addTema_WithValidData_ShouldAddSuccessfully" classname="HomeworkTest.AppTest" time="0.002"/>
+  <testcase name="addTema_WithTooSmallStartline_ShouldFail" classname="HomeworkTest.AppTest" time="0.005">
+    <system-out><![CDATA[Entitatea nu este valida: Data de primire invalida! 
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithNullDescription_ShouldFail" classname="HomeworkTest.AppTest" time="0.004">
+    <system-out><![CDATA[Entitatea nu este valida: Descriere invalida! 
+
+]]></system-out>
+  </testcase>
+  <testcase name="addTema_WithDuplicateId_ShouldFail" classname="HomeworkTest.AppTest" time="0.002"/>
+  <testcase name="addTema_WithEmptyDescription_ShouldFail" classname="HomeworkTest.AppTest" time="0.003">
+    <system-out><![CDATA[Entitatea nu este valida: Descriere invalida! 
+
+]]></system-out>
+  </testcase>
 </testsuite>
