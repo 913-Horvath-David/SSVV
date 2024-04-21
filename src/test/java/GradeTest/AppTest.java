@@ -5,7 +5,6 @@ import domain.Student;
 import domain.Tema;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import repository.NotaXMLRepository;
 import repository.StudentXMLRepository;
@@ -17,7 +16,6 @@ import validation.TemaValidator;
 import validation.Validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class AppTest {
     private static Service studentService;

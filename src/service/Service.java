@@ -67,25 +67,32 @@ public class Service {
     }
 
     public int saveNota(String idStudent, String idTema, double valNota, int predata, String feedback) {
-        if (studentXmlRepo.findOne(idStudent) == null || temaXmlRepo.findOne(idTema) == null) {
+        if (studentXmlRepo.findOne(idStudent) == null) {
+            System.out.println("Student not found.");
             return -1;
         }
-        else {
-            int deadline = temaXmlRepo.findOne(idTema).getDeadline();
-
-            if (predata - deadline > 2) {
-                valNota =  1;
-            } else {
-                valNota =  valNota - 2.5 * (predata - deadline);
-            }
-            Nota nota = new Nota(new Pair(idStudent, idTema), valNota, predata, feedback);
-            Nota result = notaXmlRepo.save(nota);
-
-            if (result == null) {
-                return 1;
-            }
-            return 0;
+        Tema tema = temaXmlRepo.findOne(idTema);
+        if (tema == null) {
+            System.out.println("Assignment not found.");
+            return -1;
         }
+        if (notaXmlRepo.findOne(new Pair<>(idStudent, idTema)) != null) {
+            System.out.println("Grade already assigned.");
+            return -1;
+        }
+
+        int deadline = temaXmlRepo.findOne(idTema).getDeadline();
+
+        if (deadline < predata) {
+            double penalty = Math.abs(predata - deadline);
+            double finalNotaVal = valNota - penalty;
+            valNota = Math.max(1, finalNotaVal); // valoarea notei nu poate fi mai mica decat 1
+        }
+
+        Nota nota = new Nota(new Pair<>(idStudent, idTema), valNota, predata, feedback);
+        Nota result = notaXmlRepo.save(nota);
+
+        return result == null ? 0 : 1;
     }
 
     public int deleteStudent(String id) {

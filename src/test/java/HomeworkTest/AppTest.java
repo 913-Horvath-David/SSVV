@@ -3,14 +3,12 @@ package HomeworkTest;
 import domain.Tema;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import repository.TemaRepository;
 import repository.TemaXMLRepository;
 import service.Service;
 import validation.TemaValidator;
 import validation.Validator;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class AppTest {
     private static Service service;

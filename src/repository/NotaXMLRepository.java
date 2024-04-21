@@ -44,23 +44,23 @@ public class NotaXMLRepository extends AbstractXMLRepository<Pair<String, String
 
     protected Nota getEntityFromNode(Element node) {
         String IDStudent = node.getAttributeNode("IDStudent").getValue();
-        String IDTema= node.getAttributeNode("IDTema").getValue();
+        String IDTema = node.getAttributeNode("IDTema").getValue();
         double nota = Double.parseDouble(node.getElementsByTagName("Nota").item(0).getTextContent());
         int saptamanaPredare = Integer.parseInt(node.getElementsByTagName("SaptamanaPredare").item(0).getTextContent());
         String feedback = node.getElementsByTagName("Feedback").item(0).getTextContent();
 
-        return new Nota(new Pair(IDStudent, IDTema), nota, saptamanaPredare, feedback);
+        return new Nota(new Pair<>(IDStudent, IDTema), nota, saptamanaPredare, feedback);
     }
 
     public void createFile(Nota notaObj) {
         String idStudent = notaObj.getID().getObject1();
         StudentValidator sval = new StudentValidator();
         TemaValidator tval = new TemaValidator();
-        StudentFileRepository srepo = new StudentFileRepository(sval, "studenti.txt");
-        TemaFileRepository trepo = new TemaFileRepository(tval, "teme.txt");
+        StudentXMLRepository srepo = new StudentXMLRepository(sval, "studenti.xml");
+        TemaXMLRepository trepo = new TemaXMLRepository(tval, "teme.xml");
 
         Student student = srepo.findOne(idStudent);
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(student.getNume() + ".txt", false))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(student.getNume() + ".xml", false))) {
             super.findAll().forEach(nota -> {
                 if (nota.getID().getObject1().equals(idStudent)) {
                     try {

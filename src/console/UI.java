@@ -32,19 +32,19 @@ public class UI {
     }
 
     public void uiPrintAllStudents() {
-        for(Student student : service.findAllStudents()) {
+        for (Student student : service.findAllStudents()) {
             System.out.println(student);
         }
     }
 
     public void uiPrintAllTeme() {
-        for(Tema tema : service.findAllTeme()) {
+        for (Tema tema : service.findAllTeme()) {
             System.out.println(tema);
         }
     }
 
     public void uiPrintAllNote() {
-        for(Nota note : service.findAllNote()) {
+        for (Nota note : service.findAllNote()) {
             System.out.println(note);
         }
     }
@@ -103,11 +103,23 @@ public class UI {
 
         System.out.println("Introduceti valoarea notei: ");
         String linie = scanner.nextLine();
-        double valNota = Double.parseDouble(linie);
+        double valNota;
+        try {
+            valNota = Double.parseDouble(linie);
+        } catch (Exception e) {
+            System.out.println("Nota invalida! \n");
+            return;
+        }
 
         System.out.println("Introduceti saptamana de predare a temei: ");
         String linie2 = scanner.nextLine();
-        int predata = Integer.parseInt(linie2);
+        int predata;
+        try {
+            predata = Integer.parseInt(linie2);
+        } catch (Exception e) {
+            System.out.println("Saptamana de predare invalida! \n");
+            return;
+        }
 
         System.out.println("Dati un feedback temei: ");
         String feedback = scanner.nextLine();
@@ -118,7 +130,7 @@ public class UI {
             System.out.println("Nota adaugata cu succes! \n");
         }
         else if (result == 0) {
-            System.out.println("Nota existenta! \n");
+            System.out.println("Nota existenta sau invalida! \n");
         }
         else {
             System.out.println("Student sau tema inexistenta! \n");
